@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1><large class="text-muted"><blockquote class="blockquote text-center">Welcome To Online Movies</blockquote></large></h1><br>
+<div class="container-fluid">
+    <div class="row">
+        {% for i in movies %}
+        <div class="col-sm-3 mt-5 ">
+            <div  class="card" style="width: 18rem;">
+
+  <!-- Force next columns to break to new line at md breakpoint and up -->
+  <div class="w-100 d-none d-md-block"></div>
+  <img class="card-img-top" src="{{i.img.url}}" alt="Card image cap" height="400">
+  <div class="card-body">
+    <h5 class="card-title">{{i.name}}</h5>
+    <p class="card-text">{{i.year}}</p>
+    <a href="{% url 'movieapp:detail' i.id %}" class="btn btn-primary">View</a>
+
+  </div>
+</div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
