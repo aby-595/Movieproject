@@ -24,6 +24,7 @@ def add_name(request):
         img = request.FILES['img']
         movie=Movie(name=name,desc=desc,year=year,img=img)
         movie.save()
+        return redirect('movieapp:movies')
     return render(request,'add.html')
 
 
